@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
 import PDFExportInvoice from './PDFExportInvoice';
+import dataHelpers from '../utils/dataHelpers';
 
 const Invoices = () => {
     const [invoices, setInvoices] = useState([]);
@@ -379,10 +380,10 @@ const Invoices = () => {
                                                             <td className="px-4 py-4 font-bold">{formatCurrency(invoice.total_amount)}</td>
                                                             <td className="px-4 py-4">
                                                                 <span className="badge rounded-full px-3 py-2 font-bold" style={{
-                                                                    background: `linear-gradient(135deg, ${dataHelpers.getStatusColor(invoice.status)}, ${dataHelpers.getStatusColor(invoice.status)}dd)`,
+                                                                    background: `linear-gradient(135deg, ${dataHelpers.getStatusColorInvoice(invoice.status)}, ${dataHelpers.getStatusColorInvoice(invoice.status)}dd)`,
                                                                     color: 'white',
                                                                     fontSize: '0.8rem',
-                                                                    boxShadow: `0 5px 15px ${dataHelpers.getStatusColor(invoice.status)}40`
+                                                                    boxShadow: `0 5px 15px ${dataHelpers.getStatusColorInvoice(invoice.status)}40`
                                                                 }}>
                                                                     {dataHelpers.getStatusTextInvoice(invoice.status)}
                                                                 </span>
